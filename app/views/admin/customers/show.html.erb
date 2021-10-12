@@ -1,0 +1,37 @@
+<main>
+ <p id="notice"></p>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-10 offset-md-2 mx-auto">
+    <h4><%= @customer.full_name %>さんの会員詳細</h4>
+
+    <thead>
+      <tr>
+        <th class=col-md-1>会員ID</th>
+        <th>氏名</th>
+        <th>フリガナ</th>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>電話番号</th>
+        <th>メールアドレス</th>
+        <th>会員ステータス</th>
+      </tr>
+    </thead>
+
+     <tbody>
+
+      <td><%= @customer.id %></td>
+      <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+      <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+      <td><%= @customer.postal_code %></td>
+      <td><%= @customer.address %></td>
+      <td><%= @customer.telephone_number %></td>
+      <td><%= @customer.email %></td>
+      <td><%= @customer.is_deleted_i18n %></td>
+     </tbody>
+     <td><%= link_to "編集する", edit_admin_customer_path(@customer),class:"btn btn-sm btn-success" %></td>
+     <td><%= link_to "注文履歴一覧を見る", admin_homes_top_path,class:"btn btn-info btn-sm" %></td>
+  </div>
+  </div>
+  </div>
+</main>

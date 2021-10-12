@@ -1,0 +1,51 @@
+<main>
+ <p id="notice"></p>
+  <div class="container">
+   <div class="row">
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <h2>新規会員登録</h2>
+
+   <%= form_with model: [:admin,@customer], local:true do |f| %>
+   <div class="col-lg-5">
+    <%= f.label :名前 %>
+    <span>(姓)</span>
+    <%= f.text_field :last_name %>
+    <span>(名)</span>
+    <%= f.text_field :first_name %></div>
+
+   <div class="form-group">
+    <%= f.label :フリガナ %>
+    <span>(フリ)</span>
+    <%= f.text_field :last_name_kana %>
+    <span>(ガナ)</span>
+    <%= f.test_field :first_name_kana %></div>
+    
+    <div class="form-group">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+
+   <div class="form-group">
+    <%= f.label :郵便番号(ハイフンなし) %>
+    <%= f.text_field :postal_code,class:'form-control' %></div>
+
+   <div class="form-group">
+    <%= f.label :住所 %>
+    <%= f.text_field:address %></div>
+
+   <div class="form-group">
+    <%= f.label :電話番号(ハイフンなし) %>
+    <%= f.text_field :telephone_number %></div>
+
+   <div class="form-group">
+    <%= f.label :会員ステータス %>
+    <%= f.radio_button :is_deleted, "0" %>
+    <%= f.label :is_deleted,"有効",value: 0 %>
+    <%= f.radio_button :is_deleted, "1" %>
+    <%= f.label :is_deleted,"退会",value: 1 %></div>
+
+    <%= f.submit :"変更を保存",class: "btn btn-sm btn-success" %>
+    <% end %>
+   </div>
+   </div>
+  </div>
+</main>
